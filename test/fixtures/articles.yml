@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  page_refer: MyString
+  title: MyString
+  author: MyString
+  translate: MyString
+  site: MyString
+  editor: MyString
+  press: MyString
+  print: MyString
+  print_date: MyString
+  kword: MyString
+  book_size: MyString
+  price: 9.99
+  remark: MyText
+  pages_num: 1
+  cateory: MyString
+  journal: MyString
+  amount: 1
+  inner_flag: MyString
+  text: MyText
+  old_text: MyText
+  bindery: MyString
+  attr: MyString
+
+two:
+  page_refer: MyString
+  title: MyString
+  author: MyString
+  translate: MyString
+  site: MyString
+  editor: MyString
+  press: MyString
+  print: MyString
+  print_date: MyString
+  kword: MyString
+  book_size: MyString
+  price: 9.99
+  remark: MyText
+  pages_num: 1
+  cateory: MyString
+  journal: MyString
+  amount: 1
+  inner_flag: MyString
+  text: MyText
+  old_text: MyText
+  bindery: MyString
+  attr: MyString

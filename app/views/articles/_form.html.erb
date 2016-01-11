@@ -1,0 +1,152 @@
+<div class="row">
+<div class="row">
+  <%= form_for @article,:html => {:class => "form-horizontal center col-sm-8", multipart:true} do |f| %>
+
+  <div class="form-group">
+
+    <% if @article.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@article.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="form-group">
+      <%= f.label :page_refer, "页码", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :page_refer, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :title, "书名", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :title, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :author, "作者", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :author, class: "form-control"%></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :translate, "翻译", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :translate, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :site, "网址", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :site, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :editor, "编者", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :editor, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :press, "出版单位", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :press, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :print, "印刷单位", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :print, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :print_date, "出版年月", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :print_date, class: "form-control", placeholder:"格式如：20100000" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :kword, "千字", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :kword, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :book_size, "开本", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :book_size, class: "form-control", placeholder:"格式如：32开" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :price, "定价(RMB)", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :price, class: "form-control"%></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :pages_num, "页数", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :pages_num, class: "form-control"%></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :cateory, "工具书分类", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :cateory, class: "form-control"%></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :journal, "期刊", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :journal, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :amount, "拥有数量", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :amount, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :inner_flag, "内发标记", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :inner_flag, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :bindery, "装订信息", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :bindery, class: "form-control"%></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :attr, "属性", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5"><%= f.text_field :attr, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :remark, "备注", class: "col-sm-2 control-label" %>
+      <div class="col-sm-8"><%= f.text_area :remark, size: "15x10", class: "form-control wysihtml5" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :text, "评注", class: "col-sm-2 control-label" %>
+      <div class="col-sm-8"><%= f.text_area :text, size: "15x10", class: "form-control wysihtml5" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :old_text, "古老评注", class: "col-sm-2 control-label" %>
+      <div class="col-sm-8"><%= f.text_area :old_text, size: "15x10", class: "form-control wysihtml5" %></div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :converavatars, "内页", class: "col-sm-2 control-label" %>
+      <div class="col-sm-8"><%= f.file_field :converavatars, name:"article_converavatars[]", multiple: true, class: "form-control" %></div>
+  </div>
+
+
+  <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10"><%= f.submit "提交", class:"btn btn-primary" %></div>
+  </div>
+
+  <%= form_for('/updates', html: { multipart: true, class: "dropzone"}) do |f|  %>
+    <div class="fallback">
+      <%= f.file_field :image %><br>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+
+  <% end %>
+
+</div>

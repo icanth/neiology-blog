@@ -1,0 +1,5 @@
+=form_tag "/articles", method: "get", class:"navbar-form navbar-left form-inline" do
+  .form-group
+    /*= label_tag :q, "关键词"*/
+    = text_field_tag :q, params[:q], size:20, class:"form-control input-lg", placeholder:"关键词"
+  = submit_tag "搜索", class:"btn btn-default"

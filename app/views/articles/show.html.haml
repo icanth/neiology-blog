@@ -1,0 +1,114 @@
+.container
+
+	%ol.breadcrumb
+		%li=link_to '首页', articles_path
+		%li 书籍详情
+
+	.panel
+		%h4 
+			#{@article.title}
+			=link_to '启动编辑', edit_article_path(@article), class: "btn btn-primary btn-bg "
+
+
+	.panel.panel-default
+		.panel-heading 基本信息
+
+		.panel-body	
+			.row
+				.col-xs-6
+					%span.text-primary 工具书页码：
+					=@article.page_refer
+				.col-xs-6
+					%span.text-primary 作者：
+					=@article.author
+
+			.row
+				.col-xs-6
+					%span.text-primary 翻译：
+					=@article.translate
+				.col-xs-6
+					%span.text-primary 编者：
+					=@article.editor
+
+			.row
+				.col-xs-6
+					%span.text-primary 网址：
+					%a{:href=>@article.site}=@article.site
+
+			.row
+				.col-xs-6
+					%span.text-primary 出版单位：
+					=@article.press
+				.col-xs-6
+					%span.text-primary 印刷单位：
+					=@article.print
+
+			.row
+				.col-xs-6
+					%span.text-primary 出版年月：
+					=@article.print_date
+				.col-xs-6
+					%span.text-primary 开本：
+					=@article.book_size
+
+			.row
+				.col-xs-6
+					%span.text-primary 工具书分类：
+					=@article.cateory
+
+				.col-xs-6
+					%span.text-primary 期刊：
+					=@article.journal
+
+			.row
+				.col-xs-6
+					%span.text-primary 页数：
+					=@article.pages_num
+
+				.col-xs-6
+					%span.text-primary 千字：
+					=@article.kword
+
+			.row
+				.col-xs-6
+					%span.text-primary 定价[RMB]：
+					=@article.price
+
+				.col-xs-6
+					%span.text-primary 拥有数量：
+					=@article.amount
+
+			.row
+				.col-xs-6
+					%span.text-primary 装订信息：
+					=@article.bindery
+
+				.col-xs-6
+					%span.text-primary 属性：
+					=@article.attr
+
+			.row
+				.col-xs-6
+					%span.text-primary 内页：
+					=@article.inner_flag
+
+				
+	.panel.panel-default
+		.panel-heading 备注
+
+		.panel-body	
+			%p=@article.remark
+
+
+	.panel.panel-default
+		.panel-heading 评注
+
+		.panel-body	
+			%p=@article.text
+
+	.panel.panel-default
+		.panel-heading 古老评注
+
+		.panel-body	
+			%p=@article.old_text
+

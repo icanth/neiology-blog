@@ -1,0 +1,16 @@
+I"T(function() {
+  $(document).ready(function() {
+    return alert("page has loaded!");
+  });
+
+  this.paintIt = function(element, backgroundColor, textColor) {
+    element.style.backgroundColor = backgroundColor;
+    if (textColor != null) {
+      return element.style.color = textColor;
+    }
+  };
+
+  $("#text").wysiHTML5N();
+
+}).call(this);
+:ET

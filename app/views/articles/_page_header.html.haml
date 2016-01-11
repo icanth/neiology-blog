@@ -1,0 +1,8 @@
+%nav.navbar.navbar-default{:role => 'navigation'}
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{:href=>'#'} Neiology
+      =render 'search_form'
+    
+    .navbar-text.navbar-right
+      =link_to '录入书籍', new_article_path, class: "navbar-link btn btn-success btn-lg", style:"color:#fff"
