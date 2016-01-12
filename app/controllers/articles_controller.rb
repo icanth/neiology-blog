@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
 
   def new
   	@article = Article.new
+
+    @upload = Upload.new
   end
 
   def edit

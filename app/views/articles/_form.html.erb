@@ -140,10 +140,10 @@
       <div class="col-sm-offset-2 col-sm-10"><%= f.submit "提交", class:"btn btn-primary" %></div>
   </div>
 
-  <%= form_for('/updates', html: { multipart: true, class: "dropzone"}) do |f|  %>
+  <%= form_for(@upload, html: { multipart: true, class: "dropzone"}) do |f|  %>
     <div class="fallback">
       <%= f.file_field :image %><br>
-      <%= f.submit "Upload" %>
+      <%= f.submit "提交" %>
     </div>
   <% end %>
 

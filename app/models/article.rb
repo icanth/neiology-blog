@@ -1,13 +1,6 @@
 class Article < ActiveRecord::Base
 #serialize :converavatars, Array
 #   has_many :converavatars
-	has_attached_file :converimage, :styles => { :medium => "300x300>",:thumb => "100x100>" }
-	
-	validates_attachment 	:converimage, 
-				:presence => true,
-				:content_type => { :content_type => /\Aimage\/.*\Z/ },
-				:size => { :less_than => 1.megabyte }
-
 
 	def self.search(query, page, page_size)
 	  query = query ? query.strip : nil

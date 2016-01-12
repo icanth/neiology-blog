@@ -71212,3 +71212,307 @@ Migrating to AddAttachmentImageToUploads (20160111152250)
   [1m[36m (0.6ms)[0m  [1mALTER TABLE "uploads" ADD "image_file_name" varchar[0m
 SQLite3::SQLException: no such table: uploads: ALTER TABLE "uploads" ADD "image_file_name" varchar
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentImageToUploads (20160111152250)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "uploads" ADD "image_file_name" varchar[0m
+SQLite3::SQLException: no such table: uploads: ALTER TABLE "uploads" ADD "image_file_name" varchar
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentImageToUploads (20160111152250)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "uploads" ADD "image_file_name" varchar[0m
+SQLite3::SQLException: no such table: uploads: ALTER TABLE "uploads" ADD "image_file_name" varchar
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUploads (20160112140159)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160112140159"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentImageToUploads (20160112140312)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "uploads" ADD "image_file_name" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "uploads" ADD "image_content_type" varchar
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "uploads" ADD "image_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "uploads" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160112140312"]]
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2016-01-12 22:26:32 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 22ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2016-01-12 22:26:35 +0800
+Processing by ArticlesController#index as HTML
+  Rendered articles/_search_form.html.haml (1.8ms)
+  [1m[35mArticle Load (0.8ms)[0m  SELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 3 OFFSET 0
+SQLite3::SQLException: no such table: articles: SELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 3 OFFSET 0
+  Rendered articles/index.html.haml within layouts/application (50.6ms)
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: articles: SELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 3 OFFSET 0):
+    15:           -@index_show_fields.each do |field|
+    16:             %th=@articles_field_names[field]
+    17:       %tbody
+    18:         -@articles.each do |article|
+    19:           %tr
+    20:             -@index_show_fields.each do |field|        
+    21:               - if field == 'options' then
+  app/views/articles/index.html.haml:18:in `_app_views_articles_index_html_haml__1651491183746311470_70176426075500'
+
+
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.9ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (65.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (141.2ms)
+
+
+Started GET "/articles/" for ::1 at 2016-01-12 22:26:37 +0800
+Processing by ArticlesController#index as HTML
+  Rendered articles/_search_form.html.haml (0.5ms)
+  [1m[36mArticle Load (0.7ms)[0m  [1mSELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 3 OFFSET 0[0m
+SQLite3::SQLException: no such table: articles: SELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 3 OFFSET 0
+  Rendered articles/index.html.haml within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: articles: SELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 3 OFFSET 0):
+    15:           -@index_show_fields.each do |field|
+    16:             %th=@articles_field_names[field]
+    17:       %tbody
+    18:         -@articles.each do |article|
+    19:           %tr
+    20:             -@index_show_fields.each do |field|        
+    21:               - if field == 'options' then
+  app/views/articles/index.html.haml:18:in `_app_views_articles_index_html_haml__1651491183746311470_70176426075500'
+
+
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.6ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (55.1ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (128.7ms)
+
+
+Started GET "/articles/new" for ::1 at 2016-01-12 22:26:37 +0800
+Processing by ArticlesController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::StatementInvalid (Could not find table 'articles'):
+  app/controllers/articles_controller.rb:15:in `new'
+
+
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.8ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (57.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (130.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateArticles (20160112142854)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "page_refer" varchar, "title" varchar, "author" varchar, "translate" varchar, "site" varchar, "editor" varchar, "press" varchar, "print" varchar, "print_date" varchar, "kword" varchar, "book_size" varchar, "price" decimal, "remark" text, "pages_num" integer, "cateory" varchar, "journal" varchar, "amount" integer, "inner_flag" varchar, "text" text, "old_text" text, "bindery" varchar, "attr" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160112142854"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/articles/new" for ::1 at 2016-01-12 22:32:55 +0800
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (26.4ms)
+  Rendered articles/new.html.haml within layouts/application (48.7ms)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    140:       <div class="col-sm-offset-2 col-sm-10"><%= f.submit "提交", class:"btn btn-primary" %></div>
+    141:   </div>
+    142: 
+    143:   <%= form_for(@upload, html: { multipart: true, class: "dropzone"}) do |f|  %>
+    144:     <div class="fallback">
+    145:       <%= f.file_field :image %><br>
+    146:       <%= f.submit "提交" %>
+  app/views/articles/_form.html.erb:143:in `block in _app_views_articles__form_html_erb___1724005151042107874_70176416164720'
+  app/views/articles/_form.html.erb:3:in `_app_views_articles__form_html_erb___1724005151042107874_70176416164720'
+  app/views/articles/new.html.haml:8:in `_app_views_articles_new_html_haml__2694083925396996806_70176423964520'
+
+
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.9ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (76.0ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (59.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (128.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2016-01-12 22:33:34 +0800
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (6.4ms)
+  Rendered articles/new.html.haml within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    140:       <div class="col-sm-offset-2 col-sm-10"><%= f.submit "提交", class:"btn btn-primary" %></div>
+    141:   </div>
+    142: 
+    143:   <%= form_for(@upload, html: { multipart: true, class: "dropzone"}) do |f|  %>
+    144:     <div class="fallback">
+    145:       <%= f.file_field :image %><br>
+    146:       <%= f.submit "提交" %>
+  app/views/articles/_form.html.erb:143:in `block in _app_views_articles__form_html_erb___1724005151042107874_70176416164720'
+  app/views/articles/_form.html.erb:3:in `_app_views_articles__form_html_erb___1724005151042107874_70176416164720'
+  app/views/articles/new.html.haml:8:in `_app_views_articles_new_html_haml__2694083925396996806_70176423964520'
+
+
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.8ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (72.5ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (53.6ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hui/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (118.4ms)
+
+
+Started GET "/articles/new" for ::1 at 2016-01-12 22:33:58 +0800
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (5.1ms)
+  Rendered articles/new.html.haml within layouts/application (6.8ms)
+Completed 200 OK in 4908ms (Views: 4848.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-9eaec08b6497655e85b0d94fd8bf87eb1cca416bdf504bd9a0cb0aa0296374cb.css?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/articles.self-080dc99d2864919168269cd74e6d6ff5abeaeb4c4e40d30fcbf2d9d73e5dfc6e.css?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/wysihtml5n.self-79a99fc42a8023f96430c83642376f476585670066fae77ed59db6336e46da9c.css?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/dropzone/basic.self-fa392f763907b8f918686dbcfee83bce80a2dbb147ce11e57d5e36271141cab4.css?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/uploads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/dropzone.self-f4968c5c76d568fc8a719bd83aebcd638a3fa75f906e749002045ae7027615bd.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/wysihtml5n/wysihtml5-0.3.0.self-a315ed87c9cf75c553a5312e57376983d4f384e80b9eff9f300737610d2c1c90.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/wysihtml5n/wysihtml5-enhanced.self-76109b82d41706c485a2e5b8778e878009d26cea0a6a9b876019519515a19b76.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/wysihtml5n.self-6a3cf5192354f71615ac51034b3e97c20eda99643fcaf5bbe6d41ad59bd12167.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/articles.self-c08426cc806a7f7e5cd732dd6ca68ff3c364f8539cc867746888553b4d8d13db.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/wysihtml5n/jcrop.self-28692b98864ea8f381f818a5a3f82c8c9f0142417691809077cee319c588d2e9.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/uploads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/application.self-a1a74291c4c48f2f663a025ffa678498d6448b849a2d74c0ca25e39ee192c0a7.js?body=1" for ::1 at 2016-01-12 22:34:03 +0800
+
+
+Started GET "/assets/wysihtml5n/fontawesome-webfont-d45f5fb1fb4e1a101a8ad8722af443272f6c3d409d912e8175e6268d48e0b091.woff" for ::1 at 2016-01-12 22:34:03 +0800
