@@ -1,0 +1,9 @@
+I"ù(function() {
+  $(document).ready(function() {
+    return $('.wysihtml5').each(function() {
+      return $(this).wysiHTML5N();
+    });
+  });
+
+}).call(this);
+:ET

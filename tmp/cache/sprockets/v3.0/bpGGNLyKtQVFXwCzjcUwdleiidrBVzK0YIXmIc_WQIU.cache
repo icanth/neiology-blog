@@ -1,0 +1,30 @@
+I"ð(function() {
+  $(document).ready(function() {
+    return $('.wysihtml5').each(function() {
+      return $(this).wysiHTML5N();
+    });
+  });
+
+  $('#new_upload').dropzone({
+    maxFilesize: 1,
+    paramName: "upload[image]",
+    addRemoveLinks: true,
+    success: function(file, response) {
+      $(file.previewTemplate).find('.dz-remove').attr('id', response.fileID);
+      return $(file.previewElement).addClass("dz-success");
+    },
+    removedfile: function(file) {
+      var id;
+      id = $(file.previewTemplate).find('.dz-remove').attr('id');
+      return $.ajax({
+        type: 'DELETE',
+        url: '/uploads/' + id,
+        success: function(data) {
+          return console.log(data.message);
+        }
+      });
+    }
+  });
+
+}).call(this);
+:ET

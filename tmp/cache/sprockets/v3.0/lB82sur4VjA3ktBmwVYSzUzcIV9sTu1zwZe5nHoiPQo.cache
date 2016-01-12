@@ -1,0 +1,13 @@
+I"Ú(function() {
+  $(document).ready(function() {
+    return $('.wysihtml5').each(function() {
+      return $(this).wysiHTML5N();
+    });
+  });
+
+  Dropzone.autoDiscover = false;
+
+  alert($('.dropzone2'));
+
+}).call(this);
+:ET
