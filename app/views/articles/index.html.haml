@@ -4,7 +4,6 @@
       .navbar-header
         %a.navbar-brand{:href=>'#'} Neiology
         =render 'search_form'
-        
       .navbar-text.navbar-right
         =link_to '录入书籍', new_article_path, class: "navbar-link btn btn-success btn-lg", style:"color:#fff"
   .row
@@ -21,7 +20,7 @@
               - if field == 'options' then
                 %td
                   =button_to '删除', article_path(article), method: :delete, data: { confirm: '确认删除?' }, form_class: 'rails-bs-btn-danger rails-bs-btn-sm'
-                  =link_to '编辑', edit_article_path(article), class: "btn btn-primary btn-xs"
+                  =link_to '编辑', edit_article_path(article), class: "btn btn-primary btn-sm"
               - elsif field == 'site' then
                 %td
                   %a{:href => article[field]}=article[field]

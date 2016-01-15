@@ -10,10 +10,21 @@
 @import "dropzone/basic"
 
 form.rails-bs-btn-danger
-	input[type=submit]
-		@extend .btn, .btn-danger
+  input[type=submit]
+    @extend .btn, .btn-danger
 
 form.rails-bs-btn-sm
-	input[type=submit]
-		@extend .btn-sm
+  input[type=submit]
+    @extend .btn-sm
 
+.dropzone
+
+  .dz-message
+    span
+      @extend .btn, .btn-primary, .btn-xs
+    vertical-align: top
+
+  .dz-preview .dz-image
+    img
+      width: 120px
+      height: 160px

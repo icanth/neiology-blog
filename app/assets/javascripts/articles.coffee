@@ -1,8 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-//= require wysihtml5n
-//= require dropzone
+#//= require dropzone
+#//= require wysihtml5n
 
 Array::unique = ->
   output = {}
@@ -11,10 +11,15 @@ Array::unique = ->
 
 Dropzone.autoDiscover = false
 
+Dropzone.options.myAwesomeDropzone = {
+  thumbnailWidth: 120,
+  thumbnailHeight: 200
+}
+
+
 #http://www.dropzonejs.com/#config-dictFallbackMessage
 $(document).ready ->
   $('.wysihtml5').each -> $(@).wysiHTML5N()
-
 
   # grap our upload form by its id
   $('.dropzone').each ->
