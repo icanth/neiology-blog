@@ -1,4 +1,13 @@
 class UploadsController < ApplicationController
+
+  def index
+    @uploads = Upload.all
+  end
+
+  def search
+    @uploads = Upload.all
+  end
+  
   def new
     @upload = Upload.new
   end
@@ -7,7 +16,7 @@ class UploadsController < ApplicationController
     @upload = Upload.create(upload_params)
     if @upload.save
       # send success header
-      render json: { message: "success", fileID: @upload.id }, :status => 200
+      render json: { message: "success", fileID: @upload.id}, :status => 200
     else
       #  you need to send an error header, otherwise Dropzone
       #  will not interpret the response as an error:
@@ -18,9 +27,9 @@ class UploadsController < ApplicationController
   def destroy
     @upload = Upload.find(params[:id])
     if @upload.destroy    
-      render json: { message: "File deleted from server" }
+      render json: { message: "File deleted from server" }, :status => 200
     else
-      render json: { message: @upload.errors.full_messages.join(',') }
+      render json: { message: @upload.errors.full_messages.join(',') }, :status => 400
     end
   end
 

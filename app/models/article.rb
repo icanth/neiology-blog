@@ -1,7 +1,8 @@
 class Article < ActiveRecord::Base
+attr_accessor :converuploads, :printeduploads, :innerpageuploads, :copyrightuploads
 #serialize :converavatars, Array
 #   has_many :converavatars
-
+	
 	def self.search(query, page, page_size)
 	  query = query ? query.strip : nil
 	  if query && !query.empty? then

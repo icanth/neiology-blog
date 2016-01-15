@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112145626) do
+ActiveRecord::Schema.define(version: 20160115014733) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "page_refer"
@@ -36,8 +36,12 @@ ActiveRecord::Schema.define(version: 20160112145626) do
     t.text     "old_text"
     t.string   "bindery"
     t.string   "attr"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.text     "converavatars"
+    t.text     "printedavatars"
+    t.text     "innerpageavatars"
+    t.text     "copyrightavatars"
   end
 
   create_table "uploads", force: :cascade do |t|

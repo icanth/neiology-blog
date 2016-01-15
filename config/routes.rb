@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'upload/index'
+
+  get 'upload/show'
+
   get 'uploads/new'
 
   get 'welcome/index'
@@ -20,7 +24,11 @@ Rails.application.routes.draw do
   #   resources :products
     resources :articles
     
-    resources :uploads
+    resources :uploads do
+      collection do
+        get 'search'
+      end
+    end
 
   # Example resource route with options:
   #   resources :products do

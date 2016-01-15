@@ -9,25 +9,29 @@ class ArticlesController < ApplicationController
     @articles_field_names = articles_field_names
   end
 
+  def hello
+    @articles = Article.search(params[:q], params[:page], 3)
+    @articles_field_names = articles_field_names
+  end
+
   def new
   	@article = Article.new
-
-    @upload = Upload.new
+    bind_uploads(@article)
   end
 
   def edit
-	@article = Article.find(params[:id])
-  puts @article
+  	@article = Article.find(params[:id])
+    bind_uploads(@article)
   end
 
   def show
-  @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
+    bind_uploads(@article)
 #  render plain: @article.inspect
   end
 
   def create
 	#render plain: params[:article].inspect
-
   	@article = Article.new(article_params)
   	if @article.save
   		redirect_to @article
@@ -38,7 +42,6 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-   
     if @article.update(article_params)
       redirect_to @article
     else
@@ -61,8 +64,35 @@ private
     params[:page] = params[:page] ? params[:page] : 1;
   end
 
+  def bind_uploads(article)
+
+    if !article then return end
+    { :converavatars => :converuploads, 
+      :printedavatars => :printeduploads, 
+      :innerpageavatars => :innerpageuploads, 
+      :copyrightavatars => :copyrightuploads
+    }.each { |avatar, jsonData|
+      case avatar
+      when :converavatars
+        article.converuploads = article[avatar] ? _get_uploads(article, avatar) : []
+      when :printedavatars
+        article.printeduploads = article[avatar] ? _get_uploads(article, avatar) : []
+      when :innerpageavatars
+        article.innerpageuploads = article[avatar] ? _get_uploads(article, avatar) : []
+      when :copyrightavatars
+        article.copyrightuploads = article[avatar] ? _get_uploads(article, avatar) : []
+      end
+    }
+  end
+
+  def _get_uploads(article, avatar)
+      Upload.where(id: article[avatar].split(',').collect{|s|s.to_i}).collect{|upload|
+          {:fileID => upload.id, :size => upload.image.size, :name => upload.image.name, :url => upload.image.url}
+        }
+  end
+
 	def article_params
-		params.require(:article).permit(:page_refer, :title, :author, :translate, :site, :editor, :press, :print, :print_date, :kword, :book_size, :price, :pages_num, :cateory, :journal, :amount, :inner_flag, :bindery, :attr, :remark, :text, :old_text, :converimage, {converavatars:[]})
+		params.require(:article).permit(:page_refer, :title, :author, :translate, :site, :editor, :press, :print, :print_date, :kword, :book_size, :price, :pages_num, :cateory, :journal, :amount, :inner_flag, :bindery, :attr, :remark, :text, :old_text, :converavatars, :printedavatars, :innerpageavatars, :copyrightavatars)
 	end
 
   def default_show_fields
